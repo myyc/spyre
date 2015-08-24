@@ -429,7 +429,7 @@
 							{% for tab in tabs -%}
 								<div id="{{tab.id}}" class="tab {%- if loop.index == 1 %} active {%- endif %}">
 									{%- for output in outputs %}
-										{%- if output['tab'] == tab %}
+										{%- if output['tab'] == tab.id %}
 											{%- if output['type'] != "d3" %}
 												<!-- plots, custom html, or table -->
 												<div class="spyrePad--bottomM">
