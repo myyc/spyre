@@ -415,11 +415,11 @@
 							{% for tab in tabs -%}
 								{% if loop.index == 1 -%}
 									<li class="active">
-										<a href="#{{tab}}">{{tab}}</a>
+										<a href="#{{tab.id}}">{{tab.name}}</a>
 									</li>
 								{% else -%}
 									<li>
-										<a href="#{{tab}}">{{tab}}</a>
+										<a href="#{{tab.id}}">{{tab.name}}</a>
 									</li>
 								{%- endif %}
 							{%- endfor %}
@@ -427,7 +427,7 @@
 
 						<div class="tab-content">
 							{% for tab in tabs -%}
-								<div id="{{tab}}" class="tab {%- if loop.index == 1 %} active {%- endif %}">
+								<div id="{{tab.id}}" class="tab {%- if loop.index == 1 %} active {%- endif %}">
 									{%- for output in outputs %}
 										{%- if output['tab'] == tab %}
 											{%- if output['type'] != "d3" %}
