@@ -92,6 +92,9 @@ class Root(object):
                     output['id'] = output['output_id']
             self.templateVars['outputs'] = outputs
             if tabs is not None:
+                # including old behaviour where tabs = ["a", "b"] made "a", "b" act as both tab names and HTML id's
+                if len(tabs) > 0 and not isinstance(tabs[1], dict):
+                    tabs = [{"id": t, "name": t} for t in tabs]
                 self.templateVars['tabs'] = tabs
         self.defaultTemplateVars = self.templateVars
 
